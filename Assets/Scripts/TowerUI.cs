@@ -11,13 +11,13 @@ public class TowerUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
     private Tower _towerPrefab;
     private Tower _currentSpawnedTower;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         
@@ -29,8 +29,7 @@ public class TowerUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
         _towerIcon.sprite = tower.GetTowerHeadIcon ();
     }
 
-    // Implementasi dari Interface IBeginDragHandler
-    // Fungsi ini terpanggil sekali ketika pertama men-drag UI
+
     public void OnBeginDrag (PointerEventData eventData)
     {
         GameObject newTowerObj = Instantiate (_towerPrefab.gameObject);
@@ -38,8 +37,7 @@ public class TowerUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
         _currentSpawnedTower.ToggleOrderInLayer (true);
     }
 
-    // Implementasi dari Interface IDragHandler
-    // Fungsi ini terpanggil selama men-drag UI
+
     public void OnDrag (PointerEventData eventData)
     {
         Camera mainCamera = Camera.main;
@@ -49,8 +47,7 @@ public class TowerUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
         _currentSpawnedTower.transform.position = targetPosition;
     }
 
-    // Implementasi dari Interface IEndDragHandler
-    // Fungsi ini terpanggil sekali ketika men-drop UI ini
+
     public void OnEndDrag (PointerEventData eventData)
     {
         if (_currentSpawnedTower.PlacePosition == null)

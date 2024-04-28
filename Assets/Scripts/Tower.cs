@@ -5,11 +5,10 @@ using System.Collections.Generic;
 
 public class Tower : MonoBehaviour
 {
-    // Tower Component
+
     [SerializeField] private SpriteRenderer _towerPlace;
     [SerializeField] private SpriteRenderer _towerHead;
 
-    // Tower Properties
     [SerializeField] private int _shootPower = 1;
     [SerializeField] private float _shootDistance = 1f;
     [SerializeField] private float _shootDelay = 5f;
@@ -22,22 +21,22 @@ public class Tower : MonoBehaviour
     private Enemy _targetEnemy;
     private Quaternion _targetRotation;
 
-    // Digunakan untuk menyimpan posisi yang akan ditempati selama tower di drag
+
     public Vector2? PlacePosition { get; private set; }
 
-    // Start is called before the first frame update
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         
     }
 
-    // Fungsi yang digunakan untuk mengambil sprite pada Tower Head
+
     public Sprite GetTowerHeadIcon ()
     {
         return _towerHead.sprite;
@@ -53,7 +52,7 @@ public class Tower : MonoBehaviour
         transform.position = (Vector2) PlacePosition;
     }
 
-    // Mengubah order in layer pada tower yang sedang di drag
+
     public void ToggleOrderInLayer (bool toFront)
     {
         int orderInLayer = toFront ? 2 : 0;
@@ -61,7 +60,7 @@ public class Tower : MonoBehaviour
         _towerHead.sortingOrder = orderInLayer;
     }
 
-    // Mengecek musuh terdekat
+
     public void CheckNearestEnemy (List<Enemy> enemies)
     {
         if (_targetEnemy != null)
@@ -95,7 +94,7 @@ public class Tower : MonoBehaviour
         _targetEnemy = nearestEnemy;
     }
 
-    // Menembak musuh yang telah disimpan sebagai target
+
     public void ShootTarget ()
     {
         if (_targetEnemy == null)
@@ -120,7 +119,7 @@ public class Tower : MonoBehaviour
         }
     }
 
-    // Membuat tower selalu melihat ke arah musuh
+
     public void SeekTarget ()
     {
         if (_targetEnemy == null)
