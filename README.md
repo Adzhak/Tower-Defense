@@ -27,24 +27,3 @@
 
 ### Demo
 <img src="Preview/demo.gif" width="400" height="200">
-
-## Prerequisite
-
-- [Unity 2018.3.3 ](https://unity3d.com/get-unity/download/archive)
-
-## Installation
-
-- Add [Unity](https://store.unity.com/front-page?check_logged_in=1#plans-individual) to your machine
-
-- Add this project folder on Unity and run
-
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request.
-
-## License
-
-All the code available under the MIT licenses. See [LICENSE](LICENSE).
-
