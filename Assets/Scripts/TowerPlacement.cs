@@ -6,41 +6,42 @@ public class TowerPlacement : MonoBehaviour
 {
     private Tower _placedTower;
 
-
     void Start()
     {
         
     }
-
 
     void Update()
     {
         
     }
 
-
-    private void OnTriggerEnter2D (Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (_placedTower != null)
-        {
-            return;
-        }
-        Tower tower = collision.GetComponent<Tower> ();
+        Tower tower = collision.GetComponent<Tower>();
         if (tower != null)
         {
-            tower.SetPlacePosition (transform.position);
+            // If there is already a tower placed, destroy it
+            if (_placedTower != null)
+            {
+                Debug.Log("Destroying previous tower.");
+                Destroy(_placedTower.gameObject);
+            }
+            // Place the new tower
+            tower.SetPlacePosition(transform.position);
             _placedTower = tower;
+            Debug.Log("Placed new tower.");
         }
     }
 
-
-    private void OnTriggerExit2D (Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (_placedTower == null)
+        Tower tower = collision.GetComponent<Tower>();
+        if (tower != null && tower == _placedTower)
         {
-            return;
+            _placedTower.SetPlacePosition(null);
+            _placedTower = null;
+            Debug.Log("Removed tower placement.");
         }
-        _placedTower.SetPlacePosition (null);
-        _placedTower = null;
     }
 }
